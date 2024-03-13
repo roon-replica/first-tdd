@@ -9,24 +9,24 @@ class MoneyTest {
 
 	@Test
 	void testMultiplication() {
-		Dollar five = new Dollar(5);
+		Money five = Money.dollar(5);
 
-		Dollar product = five.times(2);
-		assertEquals(new Dollar(10), product);
+		Money product = five.times(2);
+		assertEquals(Money.dollar(10), product);
 
 		product = five.times(3);
-		assertEquals(new Dollar(15), product);
+		assertEquals(Money.dollar(15), product);
 	}
 
 	@Test
 	void testWonMultiplication() {
-		var five = new Won(5);
+		var five = Money.won(5);
 
-		Won product = five.times(2);
-		assertEquals(new Won(10), product);
+		Money product = five.times(2);
+		assertEquals(Money.won(10), product);
 
 		product = five.times(3);
-		assertEquals(new Won(15), product);
+		assertEquals(Money.won(15), product);
 	}
 
 	@Test
