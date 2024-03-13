@@ -1,6 +1,6 @@
 package roon.learn.firsttdd.money;
 
-public class Won {
+public class Won extends Money{
 
 	private int amount;
 
@@ -10,11 +10,5 @@ public class Won {
 
 	public Won times(int multiplier) {
 		return new Won(amount * multiplier);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		var won = (Won) obj;
-		return amount == won.amount;
 	}
 }
