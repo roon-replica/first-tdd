@@ -19,6 +19,17 @@ public class MoneyTest {
 	}
 
 	@Test
+	public void testWonMultiplication() {
+		var five = new Won(5);
+
+		Won product = five.times(2);
+		assertEquals(new Won(10), product);
+
+		product = five.times(3);
+		assertEquals(new Won(15), product);
+	}
+
+	@Test
 	public void testEquality() {
 		assertTrue(new Dollar(5).equals(new Dollar(5)));
 	}
