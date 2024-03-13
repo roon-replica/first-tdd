@@ -16,6 +16,7 @@ public class Money {
 	public boolean equals(Object obj) {
 		var money = (Money) obj;
 
-		return this.amount == money.amount;
+		return this.getClass().equals(money.getClass()) &&
+				this.amount == money.amount;
 	}
 }

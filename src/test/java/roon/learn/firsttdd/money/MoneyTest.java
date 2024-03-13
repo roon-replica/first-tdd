@@ -1,16 +1,14 @@
 package roon.learn.firsttdd.money;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class MoneyTest {
+class MoneyTest {
 
 	@Test
-	public void testMultiplication() {
+	void testMultiplication() {
 		Dollar five = new Dollar(5);
 
 		Dollar product = five.times(2);
@@ -21,7 +19,7 @@ public class MoneyTest {
 	}
 
 	@Test
-	public void testWonMultiplication() {
+	void testWonMultiplication() {
 		var five = new Won(5);
 
 		Won product = five.times(2);
@@ -32,9 +30,9 @@ public class MoneyTest {
 	}
 
 	@Test
-	public void testEquality() {
-		assertTrue(new Dollar(5).equals(new Dollar(5)));
-		assertFalse(new Dollar(1).equals(new Won(1)));
+	void testEquality() {
+		assertEquals(new Dollar(5), new Dollar(5));
+		assertNotEquals(new Dollar(1), new Won(1));
 	}
 
 }
