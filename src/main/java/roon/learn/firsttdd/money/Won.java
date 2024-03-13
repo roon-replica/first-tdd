@@ -1,11 +1,9 @@
 package roon.learn.firsttdd.money;
 
-public class Won extends Money{
-
-	private int amount;
+public class Won extends Money {
 
 	public Won(int amount) {
-		this.amount = amount;
+		super(amount);
 	}
 
 	public Won times(int multiplier) {
