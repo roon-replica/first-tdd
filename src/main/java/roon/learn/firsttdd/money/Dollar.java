@@ -17,4 +17,8 @@ public class Dollar {
 		var dolloar = (Dollar) obj;
 		return amount == dolloar.amount;
 	}
+
+	public int getAmount(){
+		return amount;
+	}
 }
