@@ -20,6 +20,8 @@ public abstract class Money {
 		return new Won(amount);
 	}
 
+	abstract String currency();
+
 	abstract Money times(int amount);
 
 	@Override

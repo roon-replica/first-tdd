@@ -9,4 +9,9 @@ public class Won extends Money {
 	public Won times(int multiplier) {
 		return new Won(amount * multiplier);
 	}
+
+	@Override
+	String currency() {
+		return "WON";
+	}
 }
