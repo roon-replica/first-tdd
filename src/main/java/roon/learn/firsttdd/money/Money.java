@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
-public abstract class Money {
+public class Money {
 
 	protected int amount;
 	protected String currency;
@@ -26,13 +26,15 @@ public abstract class Money {
 		return currency;
 	}
 
-	abstract Money times(int amount);
+	public Money times(int multiplier) {
+		return new Money(amount * multiplier, currency);
+	}
 
 	@Override
 	public boolean equals(Object obj) {
 		var money = (Money) obj;
 
-		return this.getClass().equals(money.getClass()) &&
+		return this.currency.equals(money.currency) &&
 				this.amount == money.amount;
 	}
 }
