@@ -8,6 +8,12 @@ import org.junit.jupiter.api.Test;
 class MoneyTest {
 
 	@Test
+	void testSameCurrencyAddition() {
+		Money sum = Money.dollar(5).plus(Money.dollar(5));
+		assertEquals(Money.dollar(10), sum);
+	}
+
+	@Test
 	void testCurrency() {
 		assertEquals("USD", Money.dollar(1).currency());
 		assertEquals("WON", Money.won(1).currency());
