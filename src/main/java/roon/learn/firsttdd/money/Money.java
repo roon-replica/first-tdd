@@ -15,11 +15,11 @@ public class Money {
 	}
 
 	static Money dollar(int amount) {
-		return new Dollar(amount, "USD");
+		return new Money(amount, "USD");
 	}
 
 	static Money won(int amount) {
-		return new Won(amount, "WON");
+		return new Money(amount, "WON");
 	}
 
 	String currency() {
