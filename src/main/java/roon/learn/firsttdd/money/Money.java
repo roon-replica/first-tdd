@@ -7,20 +7,24 @@ import lombok.NoArgsConstructor;
 public abstract class Money {
 
 	protected int amount;
+	protected String currency;
 
-	Money(int amount) {
+	Money(int amount, String currency) {
 		this.amount = amount;
+		this.currency = currency;
 	}
 
 	static Money dollar(int amount) {
-		return new Dollar(amount);
+		return new Dollar(amount, "USD");
 	}
 
 	static Money won(int amount) {
-		return new Won(amount);
+		return new Won(amount, "WON");
 	}
 
-	abstract String currency();
+	String currency() {
+		return currency;
+	}
 
 	abstract Money times(int amount);
 

@@ -2,16 +2,11 @@ package roon.learn.firsttdd.money;
 
 public class Won extends Money {
 
-	public Won(int amount) {
-		super(amount);
+	public Won(int amount, String currency) {
+		super(amount, currency);
 	}
 
-	public Won times(int multiplier) {
-		return new Won(amount * multiplier);
-	}
-
-	@Override
-	String currency() {
-		return "WON";
+	public Money times(int multiplier) {
+		return Money.won(amount * multiplier);
 	}
 }

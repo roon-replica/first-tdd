@@ -37,8 +37,8 @@ class MoneyTest {
 
 	@Test
 	void testEquality() {
-		assertEquals(new Dollar(5), new Dollar(5));
-		assertNotEquals(new Dollar(1), new Won(1));
+		assertEquals(Money.dollar(5), Money.dollar(5));
+		assertNotEquals(Money.dollar(1), Money.won(1));
 	}
 
 }
