@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PACKAGE)
-public class Money {
+public class Money implements Expression{
 
 	protected int amount;
 	protected String currency;
