@@ -2,10 +2,23 @@ package roon.learn.firsttdd.money;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
 class MoneyTest {
+
+	@Test
+	void testUnsupportedRate() {
+		Bank bank = new Bank();
+		assertThrows(IllegalArgumentException.class, () -> bank.rate("USD", "UNSUPPORTING_CURRENCY"));
+	}
+
+	@Test
+	void testIdentityRate() {
+		Bank bank = new Bank();
+		assertEquals(1, bank.rate("USD", "USD"));
+	}
 
 	@Test
 	void testReduceMoneyDifferentCurrency() {
