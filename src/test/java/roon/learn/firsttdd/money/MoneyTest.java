@@ -9,6 +9,18 @@ import org.junit.jupiter.api.Test;
 class MoneyTest {
 
 	@Test
+	void testMixedAddition() {
+		Expression fiveDollars = Money.dollar(5);
+		Expression thousandWons = Money.won(5000);
+		Bank bank = new Bank();
+		bank.addRate("WON", "USD", 1000);
+
+		Money result = bank.reduce(fiveDollars.plus(thousandWons), "USD");
+		assertEquals(Money.dollar(10), result);
+
+	}
+
+	@Test
 	void testUnsupportedRate() {
 		Bank bank = new Bank();
 		assertThrows(IllegalArgumentException.class, () -> bank.rate("USD", "UNSUPPORTING_CURRENCY"));
