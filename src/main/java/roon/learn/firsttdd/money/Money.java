@@ -32,7 +32,8 @@ public class Money implements Expression {
 
 	@Override
 	public Money reduce(String to) {
-		return this;
+		int rate = (currency.equals("WON") && to.equals("USD")) ? 1000 : 1;
+		return new Money(amount / rate, to);
 	}
 
 	public Money times(int multiplier) {
