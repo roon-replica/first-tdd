@@ -30,6 +30,11 @@ public class Money implements Expression {
 		return new Sum(this, addend);
 	}
 
+	@Override
+	public Money reduce(String to) {
+		return this;
+	}
+
 	public Money times(int multiplier) {
 		return new Money(amount * multiplier, currency);
 	}
