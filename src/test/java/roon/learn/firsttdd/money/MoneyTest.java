@@ -18,7 +18,7 @@ class MoneyTest {
 		Expression sum = new Sum(fiveDollars, thousandWons).plus(fiveDollars);
 		Money result = bank.reduce(sum, "USD");
 
-		assertEquals(Money.dollar(10), result);
+		assertEquals(Money.dollar(15), result);
 	}
 
 	@Test
