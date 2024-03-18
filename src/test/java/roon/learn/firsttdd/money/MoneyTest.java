@@ -10,8 +10,8 @@ class MoneyTest {
 
 	@Test
 	void testMixedAddition() {
-		Money fiveDollars = Money.dollar(5);
-		Money thousandWons = Money.won(5000);
+		Expression fiveDollars = Money.dollar(5);
+		Expression thousandWons = Money.won(5000);
 		Bank bank = new Bank();
 		bank.addRate("WON", "USD", 1000);
 
@@ -83,7 +83,7 @@ class MoneyTest {
 	void testMultiplication() {
 		Money five = Money.dollar(5);
 
-		Money product = five.times(2);
+		Expression product = five.times(2);
 		assertEquals(Money.dollar(10), product);
 
 		product = five.times(3);
@@ -94,7 +94,7 @@ class MoneyTest {
 	void testWonMultiplication() {
 		var five = Money.won(5);
 
-		Money product = five.times(2);
+		Expression product = five.times(2);
 		assertEquals(Money.won(10), product);
 
 		product = five.times(3);
