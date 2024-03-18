@@ -9,6 +9,19 @@ import org.junit.jupiter.api.Test;
 class MoneyTest {
 
 	@Test
+	void testSumPlusMoney() {
+		Expression fiveDollars = Money.dollar(5);
+		Expression thousandWons = Money.won(5000);
+		Bank bank = new Bank();
+		bank.addRate("WON", "USD", 1000);
+
+		Expression sum = new Sum(fiveDollars, thousandWons).plus(fiveDollars);
+		Money result = bank.reduce(sum, "USD");
+
+		assertEquals(Money.dollar(10), result);
+	}
+
+	@Test
 	void testMixedAddition() {
 		Expression fiveDollars = Money.dollar(5);
 		Expression thousandWons = Money.won(5000);
