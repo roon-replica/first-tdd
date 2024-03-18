@@ -9,13 +9,25 @@ import org.junit.jupiter.api.Test;
 class MoneyTest {
 
 	@Test
-	void testSumPlusMoney() {
+	void testSumTimes() {
 		Expression fiveDollars = Money.dollar(5);
-		Expression thousandWons = Money.won(5000);
+		Expression fiveThousandWons = Money.won(5000);
 		Bank bank = new Bank();
 		bank.addRate("WON", "USD", 1000);
 
-		Expression sum = new Sum(fiveDollars, thousandWons).plus(fiveDollars);
+		Expression sum = new Sum(fiveDollars, fiveThousandWons).times(2);
+		Money result = bank.reduce(sum, "USD");
+		assertEquals(Money.dollar(20), result);
+	}
+
+	@Test
+	void testSumPlusMoney() {
+		Expression fiveDollars = Money.dollar(5);
+		Expression fiveThousandWons = Money.won(5000);
+		Bank bank = new Bank();
+		bank.addRate("WON", "USD", 1000);
+
+		Expression sum = new Sum(fiveDollars, fiveThousandWons).plus(fiveDollars);
 		Money result = bank.reduce(sum, "USD");
 
 		assertEquals(Money.dollar(15), result);
@@ -24,11 +36,11 @@ class MoneyTest {
 	@Test
 	void testMixedAddition() {
 		Expression fiveDollars = Money.dollar(5);
-		Expression thousandWons = Money.won(5000);
+		Expression fiveThousandWons = Money.won(5000);
 		Bank bank = new Bank();
 		bank.addRate("WON", "USD", 1000);
 
-		Money result = bank.reduce(fiveDollars.plus(thousandWons), "USD");
+		Money result = bank.reduce(fiveDollars.plus(fiveThousandWons), "USD");
 		assertEquals(Money.dollar(10), result);
 
 	}
