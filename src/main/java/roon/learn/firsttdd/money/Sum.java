@@ -1,6 +1,6 @@
 package roon.learn.firsttdd.money;
 
-public class Sum implements Expression{
+public class Sum implements Expression {
 
 	Money augend;
 	Money addend;

@@ -10,8 +10,8 @@ class MoneyTest {
 
 	@Test
 	void testMixedAddition() {
-		Expression fiveDollars = Money.dollar(5);
-		Expression thousandWons = Money.won(5000);
+		Money fiveDollars = Money.dollar(5);
+		Money thousandWons = Money.won(5000);
 		Bank bank = new Bank();
 		bank.addRate("WON", "USD", 1000);
 
