@@ -1,6 +1,6 @@
 package roon.learn.firsttdd.money;
 
-public class Money implements Expression{
+public class Money implements Expression {
 
 	protected int amount;
 	protected String currency;
@@ -18,8 +18,13 @@ public class Money implements Expression{
 		return new Money(amount, "WON");
 	}
 
+	@Override
+	public Money reduce(String currency) {
+		return this;
+	}
+
 	public Expression plus(Money addend) {
-		return new Money(this.amount + addend.amount, currency);
+		return new Sum(this, addend);
 	}
 
 	String currency() {
