@@ -1,6 +1,7 @@
 package roon.learn.firsttdd.money;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -15,6 +16,11 @@ class MoneyTest {
 
 		product = five.times(3);
 		assertEquals(15, product.amount);
+	}
+
+	@Test
+	void testEquality() {
+		assertEquals(new Dollar(5), new Dollar(5));
 	}
 
 }
