@@ -8,6 +8,14 @@ import org.junit.jupiter.api.Test;
 class MoneyTest {
 
 	@Test
+	void testReduceMoneyDifferentCurrency() {
+		Bank bank = new Bank();
+		bank.addRate("USD", "WON", 1000);
+		Money result = bank.reduce(Money.dollar(1), "WON");
+		assertEquals(Money.won(1000), result);
+	}
+
+	@Test
 	void testReduceMoney() {
 		Bank bank = new Bank();
 		Money result = bank.reduce(Money.dollar(1), "USD");
