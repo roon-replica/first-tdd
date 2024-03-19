@@ -8,6 +8,32 @@ import org.junit.jupiter.api.Test;
 class MoneyTest {
 
 	@Test
+	void testSumTimes(){
+		Expression fiveDollar = Money.dollar(5);
+		Expression fiveThousandWon = Money.won(5000);
+		Bank bank = new Bank();
+		bank.addRate("USD", "WON", 1000);
+
+		Expression sum = new Sum(fiveDollar, fiveThousandWon).times(2);
+		Money result = bank.reduce(sum, "WON");
+
+		assertEquals(Money.won(20000), result);
+	}
+
+	@Test
+	void testSumPlusMoney() {
+		Expression fiveDollar = Money.dollar(5);
+		Expression fiveThousandWon = Money.won(5000);
+		Bank bank = new Bank();
+		bank.addRate("USD", "WON", 1000);
+
+		Expression sum = new Sum(fiveDollar, fiveThousandWon).plus(fiveDollar);
+		Money result = bank.reduce(sum, "WON");
+
+		assertEquals(Money.won(15000), result);
+	}
+
+	@Test
 	void testMixedAddition() {
 		Expression fiveDollar = Money.dollar(5);
 		Expression fiveThousandWon = Money.won(5000);
