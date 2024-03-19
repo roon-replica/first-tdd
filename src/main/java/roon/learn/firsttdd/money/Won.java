@@ -6,6 +6,7 @@ public class Won extends Money {
 		this.amount = amount;
 	}
 
+	@Override
 	public Won times(int multiplier) {
 		return new Won(amount * multiplier);
 	}
