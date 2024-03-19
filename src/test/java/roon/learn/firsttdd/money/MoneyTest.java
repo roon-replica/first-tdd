@@ -8,6 +8,17 @@ import org.junit.jupiter.api.Test;
 class MoneyTest {
 
 	@Test
+	void testMixedAddition() {
+		Expression fiveDollar = Money.dollar(5);
+		Expression fiveThousandWon = Money.won(5000);
+		Bank bank = new Bank();
+		bank.addRate("USD", "WON", 1000);
+
+		Money result = bank.reduce(fiveDollar.plus(fiveThousandWon), "WON");
+		assertEquals(Money.won(10000), result);
+	}
+
+	@Test
 	void testReduceMoneyDifferentCurrency() {
 		Bank bank = new Bank();
 		bank.addRate("USD", "WON", 1000);
