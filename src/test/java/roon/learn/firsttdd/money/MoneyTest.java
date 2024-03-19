@@ -28,6 +28,7 @@ class MoneyTest {
 		assertNotEquals(new Dollar(5), new Dollar(6));
 		assertEquals(new Won(5), new Won(5));
 		assertNotEquals(new Won(5), new Won(6));
+		assertNotEquals(new Won(5), new Dollar(5));
 	}
 
 }
