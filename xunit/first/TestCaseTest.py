@@ -3,11 +3,13 @@ from first.WasRun import WasRun
 
 
 class TestCaseTest(TestCase):
-  def testRunning(self):
-    test = WasRun("test_method")
-    assert (not test.was_run)
-    test.run()
-    assert (test.was_run)
+  def __init__(self, name):
+    self.test = WasRun("setUp")
+    self.name = name
+
+  def testSetUp(self):
+    self.test.run()
+    assert self.test.was_setup
 
 
-TestCaseTest("testRunning").run()
+TestCaseTest("testSetUp").run()
