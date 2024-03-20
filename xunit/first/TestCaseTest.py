@@ -4,12 +4,14 @@ from first.WasRun import WasRun
 
 class TestCaseTest(TestCase):
   def __init__(self, name):
-    self.test = WasRun("setUp")
     self.name = name
 
-  def testSetUp(self):
-    self.test.run()
-    assert self.test.was_setup
+  def testTemplateMethod(self):
+    test = WasRun("testTargetMethod")
+    test.run()
+
+    assert "setUp testTargetMethod tearDown " == test.log
+    print("log = ", test.log)
 
 
-TestCaseTest("testSetUp").run()
+TestCaseTest("testTemplateMethod").run()
