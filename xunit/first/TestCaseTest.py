@@ -13,5 +13,17 @@ class TestCaseTest(TestCase):
     assert "setUp testTargetMethod tearDown " == test.log
     print("log = ", test.log)
 
+  def testResult(self):
+    test = WasRun("testTargetMethod")
+    result = test.run()
+    print("result.summary = ", result.summary())
+    assert ("1 run, 0 failed" == result.summary())
+
+  def testFailedResult(self):
+    test = WasRun("testBrokenMethod")
+    result = test.run()
+
 
 TestCaseTest("testTemplateMethod").run()
+TestCaseTest("testResult").run()
+TestCaseTest("testFailedResult").run()
