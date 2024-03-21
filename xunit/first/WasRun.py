@@ -6,9 +6,10 @@ class WasRun(TestCase):
     TestCase.__init__(self, name)
 
   def testTargetMethod(self):
-    self.log = self.log + "testTargetMethod "
+    self.log += "testTargetMethod "
 
   def testBrokenMethod(self):
+    self.log += "testBrokenMethod "
     raise Exception
 
   def setUp(self):
@@ -17,3 +18,4 @@ class WasRun(TestCase):
 
   def tearDown(self):
     self.log = self.log + "tearDown "
+    print("log = ", self.log)

@@ -1,4 +1,6 @@
 from TestCase import TestCase
+from first.TestResult import TestResult
+from first.TestSuite import TestSuite
 from first.WasRun import WasRun
 
 
@@ -6,26 +8,17 @@ class TestCaseTest(TestCase):
   def __init__(self, name):
     self.name = name
 
-  def testTemplateMethod(self):
-    test = WasRun("testTargetMethod")
-    test.run()
+  def testSuite(self):
+    suite = TestSuite()
+    suite.add(WasRun("testTargetMethod"))
+    suite.add(WasRun("testBrokenMethod"))
 
-    assert "setUp testTargetMethod tearDown " == test.log
-    print("log = ", test.log)
+    result = TestResult()
+    suite.run(result)
 
-  def testResult(self):
-    test = WasRun("testTargetMethod")
-    result = test.run()
-    print("result.summary = ", result.summary())
-    assert ("1 run, 0 failed" == result.summary())
+    assert ("2 run, 1 failed" == result.summary())
 
-  def testFailedResult(self):
-    test = WasRun("testBrokenMethod")
-    result = test.run()
-    print("result.summary = ", result.summary())
-    assert ("1 run, 1 failed" == result.summary())
+    print(result.summary())
 
 
-TestCaseTest("testTemplateMethod").run()
-TestCaseTest("testResult").run()
-TestCaseTest("testFailedResult").run()
+TestCaseTest("testSuite").testSuite()
