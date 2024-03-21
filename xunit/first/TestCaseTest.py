@@ -22,6 +22,8 @@ class TestCaseTest(TestCase):
   def testFailedResult(self):
     test = WasRun("testBrokenMethod")
     result = test.run()
+    print("result.summary = ", result.summary())
+    assert ("1 run, 1 failed" == result.summary())
 
 
 TestCaseTest("testTemplateMethod").run()
